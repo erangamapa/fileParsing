@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	.container
+	.header
+		h3.text-muted Operations File Upload
+	|       
+	.jumbotron.text-center
+		h1 Welcome To File Parser
+		|         
+		p.lead
+			| Get real time feedback of your file parse progress
+		.row
+			.form-group.col-lg-4.col-lg-offset-4
+				label(for="name") Select file
+				| 
+				form#uploadForm(ref='uploadForm', action='/files/uploadFile', method='post', enctype='multipart/form-data')
+					input.form-control.input-lg(type='file', name='sampleFile')
+					h2 With realtime progress :)
+					|       
+					input.btn.btn-lg.btn-success(type='submit', value='Upload')
+				
+	

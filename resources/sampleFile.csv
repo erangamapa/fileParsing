@@ -1,0 +1,10 @@
+google,delivery,accepted,computers;network
+facebook,research,rejected,electronics;finance
+facebook,services,accepted,hardware;finance
+paypal,replacement,accepted,network;computers
+apple,replacement,pending,electronics;finance
+tesla,delivery,accepted,hardware;computers
+sony,research,rejected,hardware;finance
+sony,access,accepted,search;network
+samsung,services,rejected,network;electronics
+ibm,access,pending,search;computers

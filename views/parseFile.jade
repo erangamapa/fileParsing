@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	.container
+	.header
+		h3.text-muted Operations File Upload
+	|       
+	.jumbotron.text-center
+		h1 Welcome To File Parser
+		|         
+		p.lead
+			| Get real time feedback of your file parse progress
+		.row
+			.form-group.col-lg-4.col-lg-offset-4
+				label(for="name") Selected file
+				| 
+				label(for='file') #{uploadedFileName}
+				div(id='fileName' value="#{uploadedFileName}")
+				h2 With realtime progress :)
+				|       
+				button#mybutton.btn.btn-lg.btn-success() Parse File
+				|               
+				.progress.progress-striped.active.hide
+					#realtime-progress-bar.progress-bar.progress-bar-info(role="progressbar", style="width: 0%")
+				|               
+				p.messages
+
+				
+	
