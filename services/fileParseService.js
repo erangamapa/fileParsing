@@ -27,7 +27,7 @@ exports.parseFile = function(fileName, channelName, mainCallback){
 					console.log('failed to parse line ' + readLines);
 					console.log(err);
 				}else{
-					console.log('parsed line ' + readLines);
+					//console.log('parsed line ' + readLines);
 				}
 			});
 		})

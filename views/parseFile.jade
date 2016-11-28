@@ -12,7 +12,7 @@ block content
 			| Get real time feedback of your file parse progress
 		.row
 			.form-group.col-lg-4.col-lg-offset-4
-				label(for="name") Selected file
+				label(for="name") uploaded file
 				| 
 				label(for='file') #{uploadedFileName}
 				div(id='fileName' value="#{uploadedFileName}")
@@ -24,6 +24,25 @@ block content
 					#realtime-progress-bar.progress-bar.progress-bar-info(role="progressbar", style="width: 0%")
 				|               
 				p.messages
+		.row
+			.col-md-6
+				.form-group.col-lg-4.col-lg-offset-4
+					table#operations_table()
+						thead
+							th.search-table-column(data-dynatable-column="companies_name") company
+							th.search-table-column(data-dynatable-column="operations_type") type
+							th.search-table-column(data-dynatable-column="operations_status") status
+						tbody
+			.col-md-6
+				.form-group.col-lg-4.col-lg-offset-4
+					table#companies_table()
+						thead
+							th.search-table-column id
+							th.search-table-column name
+						tbody
+				
+
+
 
 				
 	

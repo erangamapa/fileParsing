@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+.search-table-column{
+	border: 1px solid;
+    color: black; 
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top:3px;
+    padding-bottom:3px;
+}
+
+table td{
+	padding-left: 10px;
+	padding-right: 10px;
+}

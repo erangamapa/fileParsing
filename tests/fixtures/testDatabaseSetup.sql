@@ -1,16 +1,43 @@
-USE companyAppTest;
+DROP DATABASE `companyAppTest`;
 
-SET FOREIGN_KEY_CHECKS = 0;
+CREATE DATABASE `companyAppTest`;
 
-TRUNCATE companies;
-TRUNCATE operations;
-TRUNCATE categories;
-TRUNCATE op_cat;
+USE `companyAppTest`;
 
-SET FOREIGN_KEY_CHECKS = 1;
+CREATE TABLE IF NOT EXISTS `companies`
+(
+    id int NOT NULL AUTO_INCREMENT,
+    name varchar(255),
+    PRIMARY KEY (id)
+);
 
+CREATE TABLE IF NOT EXISTS `operations`
+(
+    id int NOT NULL AUTO_INCREMENT,
+    company int,
+    type varchar(255),
+    status varchar(255),
+    PRIMARY KEY (id),
+    FOREIGN KEY (company) REFERENCES companies(id)
+);
 
-INSERT INTO companies
+CREATE TABLE IF NOT EXISTS `categories`
+(
+    id int NOT NULL AUTO_INCREMENT,
+    name varchar(255) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS `op_cat`
+(
+    category int NOT NULL,
+    operation int NOT NULL,
+    PRIMARY KEY (category, operation),
+    FOREIGN KEY (category) REFERENCES categories(id),
+    FOREIGN KEY (operation) REFERENCES operations(id)
+);
+
+INSERT INTO `companies`
     (id,name)
 VALUES
     (1,'google'),
@@ -20,7 +47,7 @@ VALUES
     (5,'samsung'),
     (6,'facebook');
 
-INSERT INTO categories
+INSERT INTO `categories`
     (id,name)
 VALUES
     (1,'network'),
@@ -33,7 +60,7 @@ VALUES
     (8,'computers'),
     (9,'search');
 
-INSERT INTO operations
+INSERT INTO `operations`
     (id, company, type, status)
 VALUES
     (1,1, 'research', 'approved'),
@@ -48,7 +75,7 @@ VALUES
     (10,3, 'access', 'rejected'),
     (11,1, 'research', 'pending');
 
-INSERT INTO op_cat
+INSERT INTO `op_cat`
     (category,operation)
 VALUES
     (1,3),

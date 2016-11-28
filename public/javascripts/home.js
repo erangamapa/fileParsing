@@ -1,6 +1,8 @@
 $(document).ready(function(){
     // Fake Random User Unique ID, I usually use Mixpanel or Kissmetrics UID here will a fallback function for people who block their JS libraries
     var channelId = Math.floor((Math.random()*100)+1);
+    $('#operations_table').hide();
+    $('#companies_table').hide();
 
     Pusher.logToConsole = true;
 
@@ -27,8 +29,32 @@ $(document).ready(function(){
             // Process is complete,Do whatever you want now, maybe redirect them to their freshly created account?
             if (totalLines == currentLines) {
                 $('.progress').addClass('hide');
-                messageBox.html('Parsing completed');
-                btn.prop('disabled', false);
+                messageBox.html('Parsing completed. Find your results below');
+                $('#operations_table').show();
+                $('#companies_table').show();
+                $('#mybutton').prop('disabled', false);
+                $.ajax({
+                  url: '/records/getOperationsRecords',
+                  success: function(data){
+                    console.log(data);
+                    $('#operations_table').dynatable({
+                      dataset: {
+                        records: data
+                      }
+                    });
+                  }
+                });
+                $.ajax({
+                  url: '/records/getCompanyRecords',
+                  success: function(data){
+                    console.log(data);
+                    $('#companies_table').dynatable({
+                      dataset: {
+                        records: data
+                      }
+                    });
+                  }
+                });
             }
         }
     });

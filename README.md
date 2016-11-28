@@ -12,7 +12,7 @@ to fill in your database details inside config.js file under respective environm
 First do an npm install. After that you have to execute tables.sql to your database.
 Then you can run the following command.
 
-NODE_ENV=<env-type> npm start
+NODE_ENV=env-type-here npm start
 env-type would be development, test or production as in config.js
 For development NODE_ENV=development npm start
 
