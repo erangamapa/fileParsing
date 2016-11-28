@@ -26,6 +26,17 @@ Unit tests are created based on mocha with chai assertions and sinon stubs.
 Before running unit tests related to database service, you need to run testDatabaseSetup.sql inside
 fixtures folder in tests. For file parse service, you do not need to populate database. 
 
+to run the tests for file parsing
+NODE_ENV=test mocha ./tests/fileParseService_test.js
+
+to run the tests for database service
+first run the testDatabaseSetup.sql against your test database
+
+then.
+NODE_ENV=test mocha ./tests/databaseService_test.js
+
+
+
 
 --NOTE---
 Application is based on nodejs, mysql, Jade and Jquery.
